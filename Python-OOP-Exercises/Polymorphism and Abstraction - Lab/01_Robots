@@ -1,23 +1,29 @@
-class ImageArea:
+class Robot:
+    def __init__(self, name):
+        self.name = name
 
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+    @staticmethod
+    def sensors_amount():
+        return 1
 
-    def get_area(self):
-        return self.width * self.height
 
-    def __lt__(self, other):
-        return self.get_area() < other.get_area()
+class MedicalRobot(Robot):
+    @staticmethod
+    def sensors_amount():
+        return 6
 
-    def __gt__(self, other):
-        return self.get_area() > other.get_area()
 
-    def __le__(self, other):
-        return self.get_area() <= other.get_area()
+class ChefRobot(Robot):
+    @staticmethod
+    def sensors_amount():
+        return 4
 
-    def __ge__(self, other):
-        return self.get_area() >= other.get_area()
 
-    def __eq__(self, other):
-        return self.get_area() == other.get_area()
+class WarRobot(Robot):
+    @staticmethod
+    def sensors_amount():
+        return 12
+
+
+def number_of_robot_sensors(robot):
+    print(robot.sensors_amount())
