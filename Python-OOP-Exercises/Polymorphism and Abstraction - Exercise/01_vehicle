@@ -1,0 +1,47 @@
+from abc import ABC, abstractmethod
+
+
+class Vehicle(ABC):
+
+    @abstractmethod
+    def drive(self, distance):
+        pass
+
+    @abstractmethod
+    def refuel(self, fuel):
+        pass
+
+
+class Car(Vehicle):
+
+    ADD_CONSUMPTION_PER_KM = 0.9
+
+    def __init__(self, fuel_quantity, fuel_consumption):
+        self.fuel_quantity = fuel_quantity
+        self.fuel_consumption = fuel_consumption
+
+    def drive(self, distance):
+        consumption = distance * (self.fuel_consumption + self.ADD_CONSUMPTION_PER_KM)
+        if consumption <= self.fuel_quantity:
+            self.fuel_quantity -= consumption
+
+    def refuel(self, fuel):
+        self.fuel_quantity += fuel
+
+
+class Truck(Vehicle):
+
+    ADD_CONSUMPTION_PER_KM = 1.6
+    FUEL_KEPT = 0.95
+
+    def __init__(self, fuel_quantity, fuel_consumption):
+        self.fuel_quantity = fuel_quantity
+        self.fuel_consumption = fuel_consumption
+
+    def drive(self, distance):
+        consumption = distance * (self.fuel_consumption + self.ADD_CONSUMPTION_PER_KM)
+        if consumption <= self.fuel_quantity:
+            self.fuel_quantity -= consumption
+
+    def refuel(self, fuel):
+        self.fuel_quantity += fuel * self.FUEL_KEPT
