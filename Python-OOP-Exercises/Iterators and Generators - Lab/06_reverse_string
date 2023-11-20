@@ -1,0 +1,7 @@
+def reverse_text(some_string):
+    current_index = len(some_string) - 1
+    end_index = 0
+
+    while current_index >= end_index:
+        yield some_string[current_index]
+        current_index -= 1
