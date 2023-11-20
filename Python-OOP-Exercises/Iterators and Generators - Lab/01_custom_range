@@ -9,7 +9,7 @@ class custom_range:
 
     def __next__(self):
         current_number = self.start
-        while current_number > self.end:
+        if current_number > self.end:
             raise StopIteration
         self.start += 1
         return current_number
