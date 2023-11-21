@@ -1,0 +1,21 @@
+def solution():
+
+    def integers():
+        num = 1
+        while True:
+            yield num
+            num += 1
+
+    def halves():
+
+        for i in integers():
+            num_half = i / 2
+            yield num_half
+
+    def take(n, seq):
+        numbers = []
+        for _ in range(n):
+            numbers.append(next(seq))
+        return numbers
+
+    return (take, halves, integers)
