@@ -1,0 +1,17 @@
+def make_bold(func):
+    def wrapper(*args, **kwargs):
+        result = f"{'<b>'}{func(*args, *kwargs)}{'</b>'}"
+        return result
+    return wrapper
+
+def make_italic(func):
+    def wrapper(*args, **kwargs):
+        result = f"{'<i>'}{func(*args, *kwargs)}{'</i>'}"
+        return result
+    return wrapper
+
+def make_underline(func):
+    def wrapper(*args, **kwargs):
+        result = f"{'<u>'}{func(*args, *kwargs)}{'</u>'}"
+        return result
+    return wrapper
