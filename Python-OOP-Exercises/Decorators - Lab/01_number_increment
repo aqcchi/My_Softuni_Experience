@@ -1,0 +1,8 @@
+def number_increment(numbers):
+
+    def increase():
+        list_of_numbers = numbers
+        list_of_new_numbers = [num + 1 for num in numbers]
+        return list_of_new_numbers
+
+    return increase()
