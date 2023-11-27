@@ -1,0 +1,8 @@
+def vowel_filter(function):
+
+    def wrapper():
+        list_of_letters = function()
+        vowels = 'aeiouy'
+        list_of_present_vowels = [l for l in list_of_letters if l in vowels]
+        return list_of_present_vowels
+    return wrapper
