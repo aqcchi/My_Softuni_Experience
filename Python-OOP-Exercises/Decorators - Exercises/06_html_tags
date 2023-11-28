@@ -1,0 +1,8 @@
+def tags(parameter):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            result = func(*args, **kwargs)
+            return f"<{parameter}>{result}</{parameter}>"
+        return wrapper
+    return decorator
+
