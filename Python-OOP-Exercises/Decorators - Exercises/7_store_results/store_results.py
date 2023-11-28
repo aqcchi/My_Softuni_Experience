@@ -1,4 +1,3 @@
-
 class store_results:
 
     def __init__(self, func):
