@@ -1,0 +1,74 @@
+from unittest import TestCase, main
+from list_03 import IntegerList
+
+
+class TestIntegerList(TestCase):
+
+    def setUp(self) -> None:
+        self.int_list = IntegerList(
+            "4, 5, 6",
+            1,
+            2,
+            "hi",
+            5.5,
+            True,
+            3
+        )
+
+    def test_successfully_receiving_data(self):
+        self.assertEqual([1, 2, 3], self.int_list._IntegerList__data)
+
+    def test_unsuccessful_add_when_element_not_int(self):
+
+        with self.assertRaises(ValueError) as ve:
+            self.int_list.add("str")
+
+        self.assertEqual("Element is not Integer", str(ve.exception))
+
+    def test_successful_add_when_element_is_int(self):
+        self.assertEqual([1, 2, 3, 6], self.int_list.add(6))
+
+    def test_unsuccessful_remove_when_index_out_of_range(self):
+
+        with self.assertRaises(IndexError) as ie:
+            self.int_list.remove_index(index=8)
+
+        self.assertEqual("Index is out of range", str(ie.exception))
+
+    def test_successful_remove_and_return_value_at_given_index(self):
+        self.assertEqual(2, self.int_list.remove_index(1))
+
+    def test_unsuccessful_data_getting_when_index_out_of_range(self):
+        with self.assertRaises(IndexError) as ie:
+            self.int_list.get(index=8)
+
+        self.assertEqual("Index is out of range", str(ie.exception))
+
+    def test_successful_getting_value_at_given_index(self):
+        self.assertEqual(2, self.int_list.get(1))
+
+    def test_unsuccessful_element_inserting_when_index_out_of_range(self):
+        with self.assertRaises(IndexError) as ie:
+            self.int_list.insert(index=8, el=2)
+
+        self.assertEqual("Index is out of range", str(ie.exception))
+
+    def test_unsuccessful_inserting_when_element_is_not_int(self):
+        with self.assertRaises(ValueError) as ve:
+            self.int_list.insert(index=0, el="2")
+
+        self.assertEqual("Element is not Integer", str(ve.exception))
+
+    def test_successful_inserting_int_value_at_given_index(self):
+        self.int_list.insert(0, 2)
+        self.assertEqual([2, 1, 2, 3], self.int_list._IntegerList__data)
+
+    def test_getting_biggest_value(self):
+        self.assertEqual(3, self.int_list.get_biggest())
+
+    def test_getting_index_of_given_element(self):
+        self.assertEqual(0, self.int_list.get_index(1))
+
+
+if __name__ == "__main__":
+    main()
