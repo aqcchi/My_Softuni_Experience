@@ -1,0 +1,40 @@
+from unittest import TestCase, main
+from test_worker_01 import Worker
+
+
+class WorkerTests(TestCase):
+
+    def setUp(self) -> None:
+        self.worker = Worker("Anelia", 3000, 100)
+
+    def test_successful_initialization(self):
+        self.worker.work()
+        self.assertEqual("Anelia", self.worker.name)
+        self.assertEqual(3000, self.worker.salary)
+        self.assertEqual(100, self.worker.energy)
+        self.assertEqual(0, self.worker.money)
+
+    def test_successful_work(self):
+        self.worker.work()
+        self.assertEqual(3000, self.worker.money)
+        self.assertEqual(99, self.worker.energy)
+
+    def test_raise_error_when_energy_lower_or_equal_to_zero(self):
+        self.worker.energy = 0
+        with self.assertRaises(Exception) as ex:
+            self.worker.work()
+
+        self.assertEqual("Not enough energy.", str(ex.exception))
+
+    def test_successfully_rest(self):
+        self.worker.rest()
+
+        self.assertEqual(101, self.worker.energy)
+
+    def test_getting_info(self):
+        result = self.worker.get_info()
+
+        self.assertEqual(f'Anelia has saved 0 money.', result)
+
+if __name__ == "__main__":
+    main()
