@@ -1,0 +1,28 @@
+from unittest import TestCase, main
+
+from project.mammal import Mammal
+
+
+class TestMammal(TestCase):
+
+    def setUp(self) -> None:
+        self.mammal = Mammal("Maca", "cat", "meow")
+
+    def test_successful_initialization(self):
+        self.assertEqual("Maca", self.mammal.name)
+        self.assertEqual("cat", self.mammal.type)
+        self.assertEqual("meow", self.mammal.sound)
+        self.assertEqual("animals", self.mammal._Mammal__kingdom)
+
+    def test_returns_sound(self):
+        self.assertEqual(f"Maca makes meow", self.mammal.make_sound())
+
+    def test_returns_kingdom(self):
+        self.assertEqual("animals", self.mammal.get_kingdom())
+
+    def test_returns_info(self):
+        self.assertEqual("Maca is of type cat", self.mammal.info())
+
+
+if __name__ == "__main__":
+    main()
