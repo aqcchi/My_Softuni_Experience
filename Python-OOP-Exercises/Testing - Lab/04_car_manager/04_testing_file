@@ -1,0 +1,83 @@
+from unittest import TestCase, main
+
+from car_manager_04 import Car
+
+
+class TestCar(TestCase):
+
+    def setUp(self) -> None:
+        self.car = Car("Mitsubishi", "Eclipse", 20, 100)
+
+    def test_successful_initialization(self):
+        self.assertEqual("Mitsubishi", self.car.make)
+        self.assertEqual("Eclipse", self.car.model)
+        self.assertEqual(20, self.car.fuel_consumption)
+        self.assertEqual(100, self.car.fuel_capacity)
+        self.assertEqual(0, self.car.fuel_amount)
+
+    def test_no_make_raises_exception(self):
+
+        with self.assertRaises(Exception) as ex:
+            self.car.make = ""
+
+        self.assertEqual("Make cannot be null or empty!", str(ex.exception))
+
+    def test_no_model_raises_exception(self):
+
+        with self.assertRaises(Exception) as ex:
+            self.car.model = ""
+
+        self.assertEqual("Model cannot be null or empty!", str(ex.exception))
+
+    def test_fuel_consumption_zero_or_negative_raises_exception(self):
+        with self.assertRaises(Exception) as ex:
+            self.car.fuel_consumption = 0
+
+        self.assertEqual("Fuel consumption cannot be zero or negative!", str(ex.exception))
+
+    def test_fuel_capacity_zero_or_negative_raises_exception(self):
+        with self.assertRaises(Exception) as ex:
+            self.car.fuel_capacity = 0
+
+        self.assertEqual("Fuel capacity cannot be zero or negative!", str(ex.exception))
+
+    def test_fuel_amount_negative_raises_exception(self):
+        with self.assertRaises(Exception) as ex:
+            self.car.fuel_amount = -1
+
+        self.assertEqual("Fuel amount cannot be negative!", str(ex.exception))
+
+    def test_refuel_with_zero_or_negative_raises_exception(self):
+
+        with self.assertRaises(Exception) as ex:
+            self.car.refuel(0)
+
+        self.assertEqual("Fuel amount cannot be zero or negative!", str(ex.exception))
+
+    def test_successful_refuel(self):
+        self.car.refuel(20)
+
+        self.assertEqual(20, self.car.fuel_amount)
+
+    def test_successful_refuel_with_over_the_limit(self):
+        amount = 1000
+        self.car.refuel(amount)
+        self.assertTrue(amount > self.car.fuel_capacity)
+        self.assertEqual(100, self.car.fuel_capacity)
+
+    def test_fuel_needed_is_more_than_car_fuel_amount(self):
+        distance = 1000
+        with self.assertRaises(Exception) as ex:
+            self.car.drive(distance)
+
+        self.assertTrue(distance > self.car.fuel_amount)
+        self.assertEqual("You don't have enough fuel to drive!", str(ex.exception))
+
+    def test_successful_drive(self):
+        distance = 1000
+        self.car.refuel(distance)
+        self.assertTrue(distance > self.car.fuel_capacity)
+        self.assertEqual(100, self.car.fuel_capacity)
+
+if __name__ == "__main__":
+    main()
