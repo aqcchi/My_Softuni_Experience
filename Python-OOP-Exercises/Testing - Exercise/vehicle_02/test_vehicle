@@ -1,0 +1,55 @@
+from unittest import TestCase, main
+
+from vehicle import Vehicle
+
+
+class TestVehicle(TestCase):
+
+    fuel = 5.5
+    horse_power = 110.5
+
+    def setUp(self) -> None:
+        self.vehicle = Vehicle(self.fuel, self.horse_power)
+
+    def test_successful_init(self):
+        self.assertEqual(self.fuel, self.vehicle.fuel)
+        self.assertEqual(self.fuel, self.vehicle.capacity)
+        self.assertEqual(self.horse_power, self.vehicle.horse_power)
+        self.assertEqual(1.25, self.vehicle.fuel_consumption)
+
+    def test_attribute_types(self):
+        self.assertTrue(isinstance(self.vehicle.fuel, float))
+        self.assertTrue(isinstance(self.vehicle.capacity, float))
+        self.assertTrue(isinstance(self.vehicle.horse_power, float))
+        self.assertTrue(isinstance(self.vehicle.fuel_consumption, float))
+        self.assertTrue(isinstance(self.vehicle.DEFAULT_FUEL_CONSUMPTION, float))
+
+    def test_drive_not_enough_fuel_raises_exception(self):
+        with self.assertRaises(Exception) as ex:
+            self.vehicle.drive(6)
+
+        self.assertEqual("Not enough fuel", str(ex.exception))
+
+    def test_successful_drive(self):
+        self.vehicle.drive(2)
+        self.assertEqual(3, self.vehicle.fuel)
+
+    def test_refuel_too_much_fuel_raises_exception(self):
+        with self.assertRaises(Exception) as ex:
+            self.vehicle.refuel(5)
+
+        self.assertEqual("Too much fuel", str(ex.exception))
+
+    def test_successful_refuel(self):
+        self.vehicle.fuel = 1
+        self.vehicle.refuel(3)
+        self.assertEqual(4, self.vehicle.fuel)
+
+    def test_successful_string_representation(self):
+        result = self.vehicle.__str__()
+        self.assertEqual(f"The vehicle has 110.5 horse power"
+                         f" with 5.5 fuel left and 1.25 fuel"
+                         f" consumption", result)
+
+if __name__ == '__main__':
+    main()
