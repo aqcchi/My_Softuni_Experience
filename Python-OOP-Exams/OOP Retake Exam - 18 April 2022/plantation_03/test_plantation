@@ -1,0 +1,82 @@
+from unittest import TestCase, main
+from project.plantation import Plantation
+
+
+class TestPlantation(TestCase):
+
+    def setUp(self) -> None:
+        self.plantation = Plantation(5)
+
+    def test_inti(self):
+        self.assertEqual(5, self.plantation.size)
+        self.assertEqual({}, self.plantation.plants)
+        self.assertEqual([], self.plantation.workers)
+
+    def test_size_lower_than_zero_raises_value_error(self):
+        with self.assertRaises(ValueError) as ve:
+            self.plantation.size = -1
+
+        assert str(ve.exception) == "Size must be positive number!"
+
+    def test_size_success(self):
+        assert self.plantation.size == 5
+
+    def test_hire_impossible_if_worker_already_hired(self):
+        self.plantation.workers = ["Gosho"]
+        with self.assertRaises(ValueError) as ve:
+            self.plantation.hire_worker("Gosho")
+
+        assert str(ve.exception) == "Worker already hired!"
+
+    def test_hire_success_if_worker_not_yet_hired(self):
+        result = self.plantation.hire_worker("Gosho")
+        self.assertEqual("Gosho successfully hired.", result)
+        assert self.plantation.workers == ["Gosho"]
+
+    def test_len_success(self):
+        self.plantation.plants = {"Gosho": ["rose"], "Yana": ["lily", "daisy"]}
+        self.assertEqual(3, self.plantation.__len__())
+
+    def test_planting_failed_because_no_such_worker(self):
+        with self.assertRaises(ValueError) as ve:
+            self.plantation.planting("Gosho", "rose")
+
+        assert str(ve.exception) == "Worker with name Gosho is not hired!"
+
+    def test_planting_failed_because_plantation_full(self):
+        self.plantation.workers = ["Gosho"]
+        self.plantation.plants = {"Yana": "lily", "Pesho": "hyacinth", "Ana": "tulip",
+                                  "Greta": "orchid", "Simona": "daisy"}
+        with self.assertRaises(ValueError) as ve:
+            self.plantation.planting("Gosho", "rose")
+
+        self.assertEqual("The plantation is full!", str(ve.exception))
+
+    def test_planting_by_established_worker_success(self):
+        self.plantation.workers = ["Yana"]
+        self.plantation.plants = {"Yana": ["lily"]}
+        result = self.plantation.planting("Yana", "daisy")
+        self.assertEqual("Yana planted daisy.", result)
+        self.assertEqual({"Yana": ["lily", "daisy"]}, self.plantation.plants)
+
+    def test_planting_by_new_worker_success(self):
+        self.plantation.workers = ["Yana"]
+        result = self.plantation.planting("Yana", "daisy")
+        self.assertEqual("Yana planted it's first daisy.", result)
+        self.assertEqual({"Yana": ["daisy"]}, self.plantation.plants)
+
+    def test_str_method_working(self):
+        self.plantation.workers = ["Gosho"]
+        self.plantation.plants = {"Gosho": ["rose"]}
+        result = self.plantation.__str__()
+        expected = "Plantation size: 5\nGosho\nGosho planted: rose"
+        self.assertEqual(expected, result)
+
+    def test_repr_method_working(self):
+        self.plantation.workers = ["Gosho", "Yana"]
+        result = self.plantation.__repr__()
+        expected = "Size: 5\nWorkers: Gosho, Yana"
+        self.assertEqual(expected, result)
+
+if __name__ == "__main__":
+    main()
