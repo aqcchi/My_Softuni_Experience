@@ -1,0 +1,4 @@
+my_stack = input()
+reversed_stack = my_stack[::-1]
+
+print(reversed_stack)
