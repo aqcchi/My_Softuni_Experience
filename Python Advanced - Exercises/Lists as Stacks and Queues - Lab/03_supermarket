@@ -1,0 +1,18 @@
+from collections import deque
+list_of_customers = deque()
+
+command = input()
+
+while command != "End":
+
+    if command == "Paid":
+
+        while list_of_customers:
+            print(list_of_customers.popleft())
+
+    else:
+        list_of_customers.append(command)
+
+    command = input()
+
+print(f"{len(list_of_customers)} people remaining.")
