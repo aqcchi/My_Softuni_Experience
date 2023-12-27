@@ -1,0 +1,11 @@
+numbers = tuple([float(n) for n in input().split()])
+already_counted = set()
+
+for num in numbers:
+
+    if num not in already_counted:
+
+        occurrences = numbers.count(num)
+        print(f"{num:.1f} - {occurrences} times")
+
+    already_counted.add(num)
