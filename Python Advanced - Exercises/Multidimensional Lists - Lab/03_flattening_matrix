@@ -1,0 +1,9 @@
+rows = int(input())
+flattened = []
+
+for row in range(rows):
+    column_elements = [int(x) for x in input().split(", ")]
+    for col in column_elements:
+        flattened.append(col)
+
+print(flattened)
