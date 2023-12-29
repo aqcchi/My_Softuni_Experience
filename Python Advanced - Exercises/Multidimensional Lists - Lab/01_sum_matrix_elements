@@ -1,0 +1,12 @@
+matrix_sizes = input().split(", ")
+rows = int(matrix_sizes[0])
+sum_nums = 0
+matrix = []
+
+for row in range(rows):
+    elements = [int(el) for el in input().split(", ")]
+    matrix.append(elements)
+    sum_nums += sum(elements)
+
+print(sum_nums)
+print(matrix)
