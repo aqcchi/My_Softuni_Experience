@@ -1,0 +1,11 @@
+size = int(input())
+matrix = []
+sum_numbers = 0
+
+for i in range(size):
+    elements = [int(x) for x in input().split()]
+    matrix.append(elements)
+    number = matrix[i][i]
+    sum_numbers += number
+
+print(sum_numbers)
