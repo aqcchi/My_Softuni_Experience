@@ -1,0 +1,61 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+
+body {
+    font-family: "Helvetica", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Georgia", serif;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul ul {
+list-style-type: disc;
+}
+
+ul ul ul {
+list-style-type: circle;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    padding: 16px;
+}
+
+th {
+    background-color: gray;
+}
+
+th, td {
+    width: 400px;
+    height: 32px;
+    border: 1px solid gray;
+    padding-left: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: white; 
+}
+
+tr:nth-child(odd) {
+    background-color: #E8E8E8; 
+}
+
+blockquote {
+    border-left: 4px solid rgb(221, 221, 221);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+blockquote p:nth-child(3) {
+    text-align: right;
+}
+
+hr {
+    border-left: 4pxs rgb(221, 221, 221); 
+}
