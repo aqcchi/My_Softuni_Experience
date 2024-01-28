@@ -1,0 +1,28 @@
+body {
+    font-family: Helvetica, sans-serif;
+    margin-left: 70px;
+}
+
+h1 {
+    display: inline-block; 
+    margin-right: 100px;
+    margin-top: 70px;
+}
+
+nav {
+    display: inline-block; 
+}
+
+header {
+    border-bottom: 2px solid #000; 
+  }
+
+a {
+    margin: 10px;
+    color: forestgreen;
+    text-decoration: none;
+}
+
+h2 {
+    font-weight: normal;
+}
