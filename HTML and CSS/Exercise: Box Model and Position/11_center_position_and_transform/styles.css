@@ -1,0 +1,59 @@
+body {
+    font-family: "Georgia", sans-serif;
+    font-size: 1em;
+    line-height: 1.2;
+    background-color: rgb(238, 238, 238);
+    margin: 0;
+}
+
+.card {
+    background: rgb(255, 255, 255);
+    max-width: 400px; 
+    margin: 0 auto;
+    padding: 0; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 1em 0.5em rgb(0, 0, 0, 0.2);
+    border-radius: 0.2em;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card div:nth-child(2) {
+    padding: 10px;
+    margin: 10px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.card p {
+    color: #555;
+    margin-top: 10px;
+}
+
+.card a {
+    position: relative;
+}
+
+a {
+    background: #28a745;
+    color: #fff;
+    padding: 5px 13px;
+    cursor: pointer;
+    border-radius: 0.2em;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    left: 75%;
+    transform: translateX(-50%);
+}
+
