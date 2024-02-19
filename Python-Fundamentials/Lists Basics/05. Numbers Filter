@@ -1,0 +1,31 @@
+numbers = int(input())
+list_even = []
+list_odd = []
+list_positives = []
+list_negatives = []
+
+for i in range(numbers):
+    current_int = int(input())
+
+    if current_int % 2 == 0:
+        list_even.append(current_int)
+
+    if current_int % 2 != 0:
+        list_odd.append(current_int)
+
+    if current_int >= 0:
+        list_positives.append(current_int)
+
+    if current_int < 0:
+        list_negatives.append(current_int)
+
+command = input()
+
+if command == "even":
+    print(list_even)
+elif command == "odd":
+    print(list_odd)
+elif command == "positive":
+    print(list_positives)
+elif command == "negative":
+    print(list_negatives)
