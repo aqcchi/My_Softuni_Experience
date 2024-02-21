@@ -1,0 +1,6 @@
+function solve(student_name, student_age, student_grade) {
+    console.log(`Name: ${student_name}, Age: ${student_age}, Grade: ${student_grade.toFixed(2)}`)
+}
+
+//e.g
+solve('John', 15, 5.54678)
