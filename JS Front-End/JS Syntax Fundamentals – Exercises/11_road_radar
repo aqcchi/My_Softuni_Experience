@@ -1,0 +1,26 @@
+function is_within_speed_limit(driverSpeed, area) {
+
+    let myMap = {
+        'motorway': 130,
+        'interstate': 90,
+        'city': 50,
+        'residential': 20
+    };
+
+    currentArea = myMap[area]
+
+    if (driverSpeed <= myMap[area]) {
+        console.log(`Driving ${driverSpeed} km/h in a ${currentArea} zone`)
+    } else {
+        let speedDifference = driverSpeed - currentArea
+        if (speedDifference <= 20) {
+            driverStatus = 'speeding';
+        } else if (speedDifference <= 40) {
+            driverStatus = 'excessive speeding';
+        } else {driverStatus = 'reckless driving'}
+        console.log(`The speed is ${speedDifference} km/h faster than the allowed speed of ${currentArea} - ${driverStatus}`)
+    }
+}
+
+
+is_within_speed_limit(200, 'motorway')
