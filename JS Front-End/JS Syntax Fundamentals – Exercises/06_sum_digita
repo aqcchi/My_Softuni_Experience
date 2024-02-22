@@ -1,0 +1,12 @@
+function sum_of_digits(number) {
+    string_num = number.toString()
+    let digits_sum = 0
+
+    for (digit of string_num.split('')) {
+        digits_sum += parseInt(digit);
+    }
+
+    console.log(digits_sum)
+}
+
+sum_of_digits(97561);
