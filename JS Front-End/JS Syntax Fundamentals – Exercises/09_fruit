@@ -1,0 +1,7 @@
+function money_needed(fruit, grams, price_per_kg) {
+    let kilos = grams / 1000
+    let money = kilos * price_per_kg
+    console.log(`I need $${money.toFixed(2)} to buy ${kilos.toFixed(2)} kilograms ${fruit}.`)
+}
+
+money_needed('apple', 1563, 2.35);
