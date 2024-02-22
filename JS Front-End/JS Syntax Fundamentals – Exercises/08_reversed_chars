@@ -1,0 +1,6 @@
+function solve(char1, char2, char3) {
+    array_of_chars = [char3, char2, char1]
+    console.log(array_of_chars.join(' '))
+}
+
+solve('A', 'B', 'C');
