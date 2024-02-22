@@ -1,0 +1,24 @@
+function solve(number) {
+    myString = number.toString()
+    let sumDigits = 0
+    let noBreak = true
+    for (let digit of myString) {
+        sumDigits += parseInt(digit)
+    }
+
+    for (let digit of myString) {
+        if (digit !== myString[0]) {
+            console.log('false');
+            noBreak = false;
+            break;
+        }
+    }
+
+    if (noBreak) {
+        console.log('true')
+    }
+
+    console.log(sumDigits)
+}
+
+solve(2222222)
