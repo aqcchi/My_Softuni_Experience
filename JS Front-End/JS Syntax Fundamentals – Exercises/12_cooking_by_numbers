@@ -1,0 +1,21 @@
+function perform_operations(stringNumber, ...operations) {
+
+    let myMap = {
+        'chop': a => a / 2,
+        'dice': a => Math.sqrt(a),
+        'spice': a => a + 1,
+        'bake': a => a * 3,
+        'fillet': a => a * 0.80
+    }
+
+    let number = parseFloat(stringNumber);
+    let precision = (number % 1 !== 0) ? 1 : 0;
+
+    for (let operation of operations) {
+        number = myMap[operation](number);
+        let precision = (number % 1 === 0) ? 0 : 1;
+        console.log(number.toFixed(precision));
+    }
+}
+
+perform_operations('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
