@@ -4,4 +4,4 @@ function solve() {
         }
 }
 
-solve()
+solve();
