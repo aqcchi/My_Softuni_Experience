@@ -1,0 +1,9 @@
+function extractWords(someString) {
+    let wordsArray = someString.match(/\b\w+\b/g) || []; 
+    let uppercaseWords = wordsArray.map(word => word.toUpperCase());
+    let endResult = uppercaseWords.join(', ');
+    console.log(endResult);
+}
+
+
+extractWords('Hi, how are you?')
