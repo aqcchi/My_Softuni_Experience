@@ -1,0 +1,9 @@
+function printingNumbers(someArray) {
+    
+    numbersSum = someArray[0] + someArray[someArray.length - 1]
+    console.log(numbersSum)
+}
+
+printingNumbers([20, 30, 40])
+printingNumbers([10, 17, 22, 33])
+printingNumbers([11, 58, 69])
