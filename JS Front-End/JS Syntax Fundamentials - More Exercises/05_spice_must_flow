@@ -1,0 +1,26 @@
+function extractingSpices(startingYield) {
+    let currentDayYield = startingYield;
+    let daysPassed = 0;
+    let amountOfExtractedSpices = 0;
+
+    function adjustSpices() {
+        if (amountOfExtractedSpices >= 26) {
+            amountOfExtractedSpices -= 26;
+        }
+    }
+
+    while (currentDayYield >= 100) {
+        amountOfExtractedSpices += currentDayYield;
+        adjustSpices();
+        currentDayYield -= 10;
+        daysPassed += 1;
+    }
+
+    adjustSpices();
+
+    console.log(daysPassed);
+    console.log(amountOfExtractedSpices);
+}
+
+extractingSpices(111);
+extractingSpices(450);
