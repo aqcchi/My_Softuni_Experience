@@ -1,0 +1,12 @@
+function solve(n, inputArray) {
+    let newArray = [];
+    for (let i = 0; i < n; i++) {
+        element = inputArray.shift()
+        newArray.push(element)
+        
+    }
+
+    console.log(newArray.reverse().join(' '))
+}
+
+solve(3, [10, 20, 30, 40, 50])
