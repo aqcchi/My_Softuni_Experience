@@ -1,0 +1,22 @@
+function sumDifference(inputArray) {
+    let oddNumbers = []
+    let evenNumbers = []
+
+    for (let element of inputArray) {
+        if (element %2 !== 0) {
+            oddNumbers.push(element)
+        } else if (element % 2 === 0) {
+            evenNumbers.push(element)
+        }
+    }
+    
+    sumOdd = oddNumbers.reduce((acc, currentValue) => acc + currentValue, 0);
+    sumEven = evenNumbers.reduce((acc, currentValue) => acc + currentValue, 0);
+
+    let difference = sumEven - sumOdd
+    console.log(difference)
+}
+
+sumDifference([1,2,3,4,5,6])
+sumDifference([3,5,7,9])
+sumDifference([2,4,6,8,10])
