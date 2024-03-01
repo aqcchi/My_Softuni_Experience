@@ -1,0 +1,12 @@
+function performRotations(inputArray, rotationsCounter) {
+    for (i = 0; i < rotationsCounter; i++) {
+        removedEl = inputArray.shift();
+        inputArray.push(removedEl)
+    }
+
+    console.log(inputArray.join(' '))
+}
+
+performRotations([51, 47, 32, 61, 21], 2)
+performRotations([32, 21, 61, 1], 4)
+performRotations([2, 4, 15, 31], 5)
