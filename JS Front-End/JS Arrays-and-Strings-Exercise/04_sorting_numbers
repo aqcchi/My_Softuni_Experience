@@ -1,0 +1,17 @@
+function sortArray(inputArray) {
+
+    let ascendingOrder = inputArray.map(Number).sort((a, b) => a - b);
+        
+    let finalArray = []
+
+    while (ascendingOrder.length > 0) {
+        smallest = ascendingOrder.shift()
+        finalArray.push(smallest)
+        biggest = ascendingOrder.pop()
+        finalArray.push(biggest)
+    }
+
+    return finalArray
+}
+
+console.log(sortArray([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]))
