@@ -1,0 +1,9 @@
+function replaceText(inputSentence, word) {
+    let asteriskCount = "*".repeat(word.length)
+    let regex = new RegExp(word, 'g');
+    let newSentence = inputSentence.replace(regex, asteriskCount)
+    console.log(newSentence)
+}
+
+replaceText('A small sentence with some words', 'small')
+replaceText('Find the hidden word', 'hidden')
