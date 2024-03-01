@@ -1,0 +1,13 @@
+function countWord(sentence, inputWord) {
+    let count = 0
+    let sentenceArray = sentence.split(' ');
+    for (let currentWord of sentenceArray) {
+        if (currentWord === inputWord) {
+            count += 1
+        }
+    }
+    console.log(count)
+}
+
+countWord('This is a word and it also is a sentence', 'is')
+countWord('softuni is great place for learning new programming languages', 'softuni')
