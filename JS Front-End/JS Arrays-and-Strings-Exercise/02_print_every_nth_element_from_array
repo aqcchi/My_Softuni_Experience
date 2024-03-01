@@ -1,0 +1,9 @@
+function printCertainsElements(stringsArray, number) {
+    let outputArray = []
+    for (let i = 0; i < stringsArray.length; i += number) {
+        let elementAtIndex = stringsArray[i];
+        outputArray.push(elementAtIndex.trim())
+        }
+
+    return outputArray
+}
