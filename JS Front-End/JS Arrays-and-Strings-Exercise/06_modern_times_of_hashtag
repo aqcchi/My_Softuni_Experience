@@ -1,0 +1,12 @@
+function findSpecialWords(inputSentence) {
+    let regexp = /#[a-zA-Z]+/g;
+    let matches = inputSentence.match(regexp);
+    
+    for (let match of matches) {
+        finalVersion = match.substring(1)
+        console.log(finalVersion) 
+    }
+}
+
+findSpecialWords('Nowadays everyone uses # to tag a #special word in #socialMedia')
+findSpecialWords('The symbol # is known #variously in English-speaking #regions as the #number sign')
