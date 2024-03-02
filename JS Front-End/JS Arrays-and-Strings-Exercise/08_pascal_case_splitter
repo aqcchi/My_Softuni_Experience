@@ -1,0 +1,9 @@
+function splitWords(inputString) {
+    let regex = /[A-Z][a-z]*/g;
+    let resultArray = inputString.match(regex)
+    console.log(resultArray.join(', '))
+}
+
+splitWords('SplitMeIfYouCanHaHaYouCantOrYouCan')
+splitWords('HoldTheDoor')
+splitWords('ThisIsSoAnnoyingToDo')
