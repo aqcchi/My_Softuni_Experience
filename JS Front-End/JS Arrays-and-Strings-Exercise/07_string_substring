@@ -1,0 +1,14 @@
+function checkForWord(word, text) {
+    const words = text.toLowerCase().split(' ');
+    const isIncluded = words.includes(word.toLowerCase());
+
+    if (isIncluded) {
+        return word;
+    }
+
+    return `${word} not found!`;
+}
+
+checkForWord('javascript', 'JavaScript is the best programming language')
+checkForWord('python', 'JavaScript is the best programming language'
+)
