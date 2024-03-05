@@ -1,0 +1,22 @@
+function multiplication(numOne, numTwo, numThree) {
+    let myArray = [numOne, numTwo, numThree]
+    let count = 0
+
+    for (let i=0; i < myArray.length; i++) {
+        if (myArray[i] < 0) {
+            count += 1
+        }
+    }
+
+    if (count % 2 !== 0) {
+        console.log("Negative")  
+    } else {
+        console.log("Positive")
+    }
+}
+
+multiplication(5, 12, -15)
+multiplication(-6, -12, 14)
+multiplication(-1, -2, -3)
+multiplication(-5, 1, 1)
+
