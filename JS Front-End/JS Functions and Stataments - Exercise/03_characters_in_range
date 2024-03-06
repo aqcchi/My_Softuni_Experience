@@ -1,0 +1,24 @@
+
+function printAsciiChars(char1, char2) {
+    let symbolsArray = [];
+    let [startOfLoop, endOfLoop] = findNeededOperation(char1, char2);
+
+    function findNeededOperation(char1, char2) {
+        if (char1 < char2) {     
+            return [char1.charCodeAt(0), char2.charCodeAt(0)];
+        } else {
+            return [char2.charCodeAt(0), char1.charCodeAt(0)];
+        } 
+        return [char1.charCodeAt(0), char1.charCodeAt(0)];
+    }
+
+    for (let i = startOfLoop + 1; i < endOfLoop; i++) {
+        symbolsArray.push(String.fromCharCode(i));
+    }
+
+    console.log(symbolsArray.join(' '));
+}
+
+printAsciiChars('a', 'd')
+printAsciiChars('#', ':')
+printAsciiChars('C', '#');
