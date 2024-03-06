@@ -1,0 +1,8 @@
+function sumAndSubtrackt(num1, num2, num3) {
+
+    let sumFirstTwo = num1 + num2;
+    let subtractwithThird = sumFirstTwo - num3;
+    console.log(subtractwithThird)
+}
+
+sumAndSubtrackt(23, 6, 10)
