@@ -1,0 +1,17 @@
+function visualizeLoadingBar(number) {
+
+    // outputArray = []
+
+    if (number !== 100) {
+        let loadingBar = '[' + '%'.repeat(number / 10) + '.'.repeat(10 - number / 10) + ']'
+        console.log(`${number}% ${loadingBar}`)
+        console.log(`Still loading...`)
+    } else {
+        console.log(`100% Complete!`)
+        console.log(`[%%%%%%%%%%]`)
+    } 
+}
+
+visualizeLoadingBar(30)
+visualizeLoadingBar(50)
+visualizeLoadingBar(100)
