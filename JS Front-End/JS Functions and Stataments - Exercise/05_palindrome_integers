@@ -1,0 +1,14 @@
+function checksIfPalindrome(arrayOfIntegers) {
+
+    for (let number of arrayOfIntegers) {
+        stringNumber = number.toString()
+        if (stringNumber === stringNumber.split('').reverse().join('')) {
+            console.log('true')
+        } else {
+            console.log(false)
+        }
+    }
+}
+
+checksIfPalindrome([123,323,421,121])
+checksIfPalindrome([32,2,232,1010])
