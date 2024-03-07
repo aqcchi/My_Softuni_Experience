@@ -1,0 +1,16 @@
+function printNxNMatrix(number) {
+
+    for (let i = 0; i < number; i++) {
+        let row = '';
+        for (let j = 0; j < number; j++) {
+            row += number + ' '
+        }
+
+        console.log(row.trim())
+    }
+
+}
+
+printNxNMatrix(3)
+printNxNMatrix(7)
+printNxNMatrix(2)
