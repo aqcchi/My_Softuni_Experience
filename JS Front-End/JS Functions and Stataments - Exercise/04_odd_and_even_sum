@@ -1,0 +1,18 @@
+function returnsOddAndEvenSums(inputNumber) {
+    let stringNumber = inputNumber.toString()
+    let oddSum = 0
+    let evenSum = 0
+
+    for (let digit of stringNumber) {
+        if (digit % 2 === 0) {
+            evenSum += Number(digit)
+        } else {
+            oddSum += Number(digit)
+        }
+    }
+
+    console.log(`Odd sum = ${oddSum}, Even sum = ${evenSum}`)
+}
+
+returnsOddAndEvenSums(1000435)
+returnsOddAndEvenSums(3495892137259234)
