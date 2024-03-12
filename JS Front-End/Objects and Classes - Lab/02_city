@@ -1,0 +1,14 @@
+function printObject(inputObject) {
+
+    for (let key in inputObject) {
+        console.log(`${key} -> ${inputObject[key]}`)
+    }
+}
+
+printObject({
+    name: "Sofia",
+    area: 492,
+    population: 1238438,
+    country: "Bulgaria",
+    postCode: "1000"
+})
