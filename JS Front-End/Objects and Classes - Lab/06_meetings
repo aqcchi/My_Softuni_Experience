@@ -1,0 +1,26 @@
+function bookAppointment(inputArray){
+
+    let appointments = {};
+
+    for (let line of inputArray) {
+        let [day, name] = line.split(" ");
+        if (day in appointments) {
+            console.log(`Conflict on ${day}!`)
+        } else {
+            appointments[day] = name;
+            console.log(`Scheduled for ${day}`)
+        }
+    }
+
+    let entries = Object.entries(appointments);
+    for (let [ key, value ] of entries) {
+        console.log(`${key} -> ${value}`);
+    }
+ 
+}
+
+bookAppointment(['Monday Peter',
+'Wednesday Bill',
+'Monday Tim',
+'Friday Tim']
+)
