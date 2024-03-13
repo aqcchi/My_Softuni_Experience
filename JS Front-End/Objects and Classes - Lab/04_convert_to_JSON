@@ -1,0 +1,15 @@
+function solve(firstName, lastName, hairColor) {
+
+    let objectInfo = {
+        name: firstName,
+        lastName,
+        hairColor
+    };
+
+    let result = JSON.stringify(objectInfo);
+
+    console.log(result)
+}
+
+solve('George', 'Jones', 'Brown')
+solve('Peter', 'Smith', 'Blond')
