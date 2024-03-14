@@ -1,0 +1,27 @@
+function displayCatInfo(stringsArray) {
+    class Cat {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        meow() {
+            console.log(`${this.name}, age ${this.age} says Meow`);
+        }
+    }
+
+    const catInfoObj = {};
+
+    for (let line of stringsArray) {
+        let [name, age] = line.split(" ");
+        catInfoObj[name] = age;
+    }
+
+    for (let [name, age] of Object.entries(catInfoObj)) {
+        let cat = new Cat(name, age);
+        cat.meow();
+    }
+}
+
+displayCatInfo(['Mellow 2', 'Tom 5']);
+displayCatInfo(['Candy 1', 'Poppy 3', 'Nyx 2']);
