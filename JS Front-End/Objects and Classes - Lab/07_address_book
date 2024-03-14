@@ -1,0 +1,22 @@
+function storeInfo(namesAndAddresses) {
+    let finalInfoObj = {};
+    for (let line of namesAndAddresses) {
+        let [name, address] = line.split(":");
+        finalInfoObj[name] = address;
+    }
+
+    const entries = Object.entries(finalInfoObj);
+    entries.sort((a, b) => a[0].localeCompare(b[0]));
+    const sortedObj = Object.fromEntries(entries);
+    
+    for (let key in sortedObj) {
+        console.log(`${key} -> ${sortedObj[key]}`);
+    }
+}
+
+storeInfo(['Tim:Doe Crossing',
+'Bill:Nelson Place',
+'Peter:Carlyle Ave',
+'Bill:Ornery Rd'])
+
+
