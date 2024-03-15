@@ -1,0 +1,20 @@
+function createEmplyeesList(inputArray) {
+
+    let employeesList = {};
+
+    for (let employee of inputArray) {
+        let personalNum = employee.length;
+        employeesList[employee] = personalNum; 
+    }
+
+    for (let [name, personalNum] of Object.entries(employeesList)) {
+        console.log(`Name: ${name} -- Personal Number: ${personalNum}`)
+    }
+}
+
+createEmplyeesList([
+    'Silas Butler',
+    'Adnaan Buckley',
+    'Juan Peterson',
+    'Brendan Villarreal'
+    ])
