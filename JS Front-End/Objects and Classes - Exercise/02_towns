@@ -1,0 +1,15 @@
+function gatherTownsInfo(inputArray) {
+
+    let townsInfo = []
+
+    for (let line of inputArray) {
+        [townName, townLatitude, townLongitude] = line.split(' | ');
+        townLatitude = Number(townLatitude).toFixed(2);
+        townLongitude = Number(townLongitude).toFixed(2);
+        townsInfo.push({town: townName, latitude: townLatitude, longitude: townLongitude})
+    }
+
+    townsInfo.forEach(town => console.log(town))
+
+gatherTownsInfo(['Sofia | 42.696552 | 23.32601',
+'Beijing | 39.913818 | 116.363625'])
