@@ -1,0 +1,23 @@
+function extractingElements(inputString) {
+
+    const elementsCount = {};
+    inputArray = inputString.split(' ')
+
+    for (let element of inputArray) {
+        element = element.toLowerCase();
+
+        if (!elementsCount[element]) {
+            elementsCount[element] = 0;
+        }
+
+        elementsCount[element] += 1
+        
+    }
+
+    filteredElements = Object.keys(elementsCount).filter(element => elementsCount[element] % 2 !== 0)
+    console.log(filteredElements.join(' '))
+  
+}
+
+extractingElements('Java C# Php PHP Java PhP 3 C# 3 1 5 C#')
+extractingElements('Cake IS SWEET is Soft CAKE sweet Food')
