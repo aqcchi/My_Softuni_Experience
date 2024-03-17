@@ -1,0 +1,25 @@
+function creatingHeroRegister(inputArray) {
+
+    const allHeroesRegistry = [];
+
+    for (let hero of inputArray) {
+        let [heroName, heroLevel, heroItems] = hero.split(' / ')
+        hero = {
+            Hero: heroName,
+            level: heroLevel,
+            items: heroItems
+        }
+        allHeroesRegistry.push(hero)
+    }
+
+    sortedRegistry = allHeroesRegistry.sort((a, b) => a.level - b.level)
+    sortedRegistry.forEach(hero => console.log(`Hero: ${hero.Hero}
+        level => ${hero.level}
+        items => ${hero.items}`))
+}
+
+creatingHeroRegister([
+    'Isacc / 25 / Apple, GravityGun',
+    'Derek / 12 / BarrelVest, DestructionSword',
+    'Hes / 1 / Desolator, Sentinel, Antara'
+    ])
