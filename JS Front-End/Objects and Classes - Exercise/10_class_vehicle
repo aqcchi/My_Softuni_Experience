@@ -1,0 +1,19 @@
+class Car{
+    constructor(type, model, parts = { engine: '', power: '', quality: ''}, fuel) {;
+        this.type = type;
+        this.model = model;
+        this.parts = Object.assign({}, parts, { quality: parts.engine * parts.power });
+        this.fuel = fuel;
+    }
+
+    drive(fuelLoss){
+        this.fuel -= fuelLoss;
+        return this.fuel
+    }
+}
+
+let parts = { engine: 6, power: 100 };
+let vehicle = new Vehicle('a', 'b', parts, 200);
+vehicle.drive(100);
+console.log(vehicle.fuel);
+console.log(vehicle.parts.quality);
