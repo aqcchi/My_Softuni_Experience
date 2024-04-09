@@ -1,0 +1,75 @@
+function managingCafe(input) {
+
+    const baristasCounter = input.shift();
+    let baristasObj = {};
+
+    for (let i = 0; i < baristasCounter; i++) {
+      const [baristaName, baristaShift, baristaCoffeeTypes] = input.shift().split(' ');
+      const coffeeList = baristaCoffeeTypes.split(',');
+      baristasObj[baristaName] = {
+        shift: baristaShift,
+        coffeeTypes: coffeeList
+      }
+    }
+
+    let commandLine = input.shift();
+
+    while (commandLine !== 'Closed') {
+      commandLine = commandLine.split(' / ')
+      command = commandLine.shift();
+      switch (command) {
+        case 'Prepare':
+          bName = commandLine.shift();
+          shift = commandLine.shift();
+          coffeeType = commandLine.shift();
+
+          if (shift === baristasObj[bName].shift && baristasObj[bName].coffeeTypes.includes(coffeeType)) {
+            console.log(`${bName} has prepared a ${coffeeType} for you!`)
+          } else {
+            console.log(`${bName} is not available to prepare a ${coffeeType}.`)
+          }
+          break;
+
+        case 'Change Shift':
+          bName = commandLine.shift();
+          newShift = commandLine.shift();
+
+          baristasObj[bName].shift = newShift;
+          console.log(`${bName} has updated his shift to: ${newShift}`)
+          break;
+
+        case 'Learn':
+          bName = commandLine.shift();
+          newCoffeeType = commandLine.shift();
+          
+          if (baristasObj[bName].coffeeTypes.includes(newCoffeeType)) {
+            console.log(`${bName} knows how to make ${newCoffeeType}.`)
+          } else {
+            baristasObj[bName].coffeeTypes.push(newCoffeeType);
+            console.log(`"${bName} has learned a new coffee type: ${newCoffeeType}.`)
+          }
+          break;
+      }
+    
+      commandLine = input.shift();
+        
+         
+}
+
+  for (let barista in baristasObj) {
+    console.log(`Barista: ${barista}, Shift: ${baristasObj[barista].shift}, Drinks: ${baristasObj[barista].coffeeTypes.join(', ')}`);
+  }
+
+}
+
+managingCafe([
+'3',
+  'Alice day Espresso,Cappuccino',
+  'Bob night Latte,Mocha',
+  'Carol day Americano,Mocha',
+  'Prepare / Alice / day / Espresso',
+  'Change Shift / Bob / night',
+  'Learn / Carol / Latte',
+  'Learn / Bob / Latte',
+  'Prepare / Bob / night / Latte',
+  'Closed'])
