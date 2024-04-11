@@ -1,0 +1,59 @@
+function decodeInfo(input) {
+
+    let encodedString = input.shift();
+
+    let commandLine = input.shift();
+
+    while (commandLine !== 'Buy') {
+
+        commandDetails = commandLine.split('?');
+        let command = commandDetails[0];
+
+        switch (command) {
+            case "TakeEven":
+
+                encodedString = encodedString.split('').map((char, index) => index % 2 === 0 ? char : '').join('');
+                console.log(encodedString);
+                break;
+
+            case "ChangeAll":
+
+                let substring = commandDetails[1];
+                let replacement = commandDetails[2];
+
+                if (encodedString.includes(substring)) {
+                    encodedString = encodedString.replace(new RegExp(substring, 'g'), replacement);
+                }
+
+                console.log(encodedString);
+                break;
+
+            case "Reverse":
+
+                let someSubstring = commandDetails[1];
+
+                if (encodedString.includes(someSubstring)) {
+                    encodedString = encodedString.replace(someSubstring, '');
+                    let reversedSubstring = someSubstring.split('').reverse().join('');
+                    encodedString += reversedSubstring;
+                    console.log(encodedString);
+                } else {
+                    console.log('error');
+                }
+
+        }
+
+        commandLine = input.shift();
+    }
+
+    console.log(`The cryptocurrency is: ${encodedString}`);
+}
+
+decodeInfo((["z2tdsfndoctsB6z7tjc8ojzdngzhtjsyVjek!snfzsafhscs", 
+"TakeEven",
+"Reverse?!nzahc",
+"ChangeAll?m?g",
+"Reverse?adshk",
+"ChangeAll?z?i",
+"Buy"]))
+
