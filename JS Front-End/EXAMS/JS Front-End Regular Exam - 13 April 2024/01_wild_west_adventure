@@ -1,0 +1,95 @@
+function solve(input) {
+
+    const charsCount = input.shift();
+    let charsObject = {};
+    const maxBulletsCapacity = 6;
+    const maxHpValue = 100;
+
+    for (let i = 0; i < charsCount; i++) {
+        let charDetails = input.shift();
+        let [name, hp, bulletsCount] = charDetails.split(' ');
+        charsObject[name] = {
+            hp: Number(hp),
+            bulletsCount: Number(bulletsCount)
+        };
+
+    }
+
+    let commandLine = input.shift();
+
+    while (commandLine !== "Ride Off Into Sunset") {
+
+        commandLine = commandLine.split(' - ');
+        command = commandLine[0];
+
+        switch (command) {
+            case 'FireShot':
+                name = commandLine[1];
+                target = commandLine[2];
+
+                if (charsObject[name].bulletsCount >= 1) {
+                    let bulletsLeft = charsObject[name].bulletsCount - 1;
+                    console.log(`${name} has successfully hit ${target} and now has ${bulletsLeft} bullets!`);
+                } else {
+                    console.log(`${name} doesn't have enough bullets to shoot at ${target}!`);
+                }
+        
+                break;
+        
+            case 'TakeHit':
+                name = commandLine[1];
+                damage = Number(commandLine[2]);
+                attacker = commandLine[3];
+
+                let currentHp = charsObject[name].hp - damage;
+
+                if (currentHp > 0) {
+                    console.log(`${name} took a hit for ${damage} HP from ${attacker} and now has ${currentHp} HP!`)
+                } else {
+                    delete charsObject[name];
+                    console.log(`${name} was gunned down by ${attacker}!`);
+                }
+        
+                break;
+        
+            case 'Reload':
+                name = commandLine[1];
+
+                if (charsObject[name].bulletsCount < maxBulletsCapacity) {
+                    let reloaded = maxBulletsCapacity - charsObject[name].bulletsCount;
+                    charsObject[name].bulletsCount += reloaded;
+                    console.log(`${name} reloaded ${reloaded} bullets!`);
+                } else {
+                    console.log(`${name}'s pistol is fully loaded!`);
+                }
+                break;
+
+            case 'PatchUp':
+                name = commandLine[1];
+                amount = Number(commandLine[2]);
+
+                if (charsObject[name].hp < maxHpValue) {
+                    let recovered = maxHpValue - charsObject[name].hp;
+                    charsObject[name].hp += recovered;
+                    console.log(`${name} patched up and recovered ${recovered} HP!`);
+                } else {
+                    console.log(`${name} is in full health!`)
+                }
+                break;
+            }
+
+        commandLine = input.shift();
+    }
+
+    for (let character in charsObject) {
+        console.log(`${character}\n HP: ${charsObject[character].hp}\n Bullets: ${charsObject[character].bulletsCount}`);
+    }
+      
+}
+
+solve((["2",
+    "Gus 100 0",
+    "Walt 100 6",
+    "TakeHit - Gus - 80 - Bandit",
+    "PatchUp - Gus - 20",
+    "Ride Off Into Sunset"]))
