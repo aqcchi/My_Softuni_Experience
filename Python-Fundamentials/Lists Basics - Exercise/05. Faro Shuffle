@@ -1,0 +1,14 @@
+cards = input().split(" ")
+shuffles_count = int(input())
+
+for shuffle in range(shuffles_count):
+    final_deck = []
+    middle_of_deck = len(cards) // 2
+    first_half = cards[0:middle_of_deck]
+    second_half = cards[middle_of_deck:]
+    for card_index in range(len(first_half)):
+        final_deck.append(first_half[card_index])
+        final_deck.append(second_half[card_index])
+    cards = final_deck
+
+print(final_deck)
