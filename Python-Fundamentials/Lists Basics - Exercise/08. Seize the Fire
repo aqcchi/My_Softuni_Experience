@@ -1,0 +1,29 @@
+fire_cells_levels = input().split("#")
+amount_of_water = int(input())
+total_effort = 0
+put_out_cells = []
+
+for type_value in fire_cells_levels:
+    type, value = type_value.split(" = ")
+    value = int(value)
+    can_be_extinguished = False
+    if type == "High":
+        if 81 <= value <= 125:
+            can_be_extinguished = True
+    elif type == "Medium":
+        if 51 <= value <= 80:
+            can_be_extinguished = True
+    elif type == "Low":
+        if 1 <= value <= 50:
+            can_be_extinguished = True
+    if can_be_extinguished:
+        if amount_of_water >= value:
+            amount_of_water -= value
+            put_out_cells.append(value)
+            total_effort += value * 0.25
+
+print("Cells:")
+for cell in put_out_cells:
+    print(f" - {cell}")
+print(f"Effort: {total_effort:.2f}")
+print(f"Total Fire: {sum(put_out_cells)}")
