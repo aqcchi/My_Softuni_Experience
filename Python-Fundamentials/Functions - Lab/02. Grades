@@ -1,0 +1,13 @@
+def grade_result(grade):
+    if 2 <= grade < 3:
+        return "Fail"
+    elif 3 <= grade < 3.50:
+        return "Poor"
+    elif 3.50 <= grade < 4.50:
+        return "Good"
+    elif 4.50 <= grade < 5.50:
+        return "Very Good"
+    elif 5.50 <= grade:
+        return "Excellent"
+
+print(grade_result(float(input())))
