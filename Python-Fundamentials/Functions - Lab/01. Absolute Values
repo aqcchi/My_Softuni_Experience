@@ -1,0 +1,8 @@
+numbers = input().split(" ")
+abs_list = []
+
+for number in numbers:
+    number = abs(float(number))
+    abs_list.append(number)
+
+print(abs_list)
