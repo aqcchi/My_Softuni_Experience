@@ -1,0 +1,13 @@
+def calculator(operator, num1, num2):
+
+    if operator == "multiply":
+        return num1 * num2
+    elif operator == "divide":
+        if num2 != 0:
+            return num1 // num2
+    elif operator == "add":
+        return num1 + num2
+    elif operator == "subtract":
+        return num1 - num2
+
+print(calculator(input(), int(input()), int(input())))
