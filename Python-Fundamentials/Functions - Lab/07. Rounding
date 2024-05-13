@@ -1,0 +1,8 @@
+numbers = input().split(" ")
+rounded_numbers_list = []
+
+for current_number in numbers:
+    current_number = round(float(current_number))
+    rounded_numbers_list.append(current_number)
+
+print(rounded_numbers_list)
