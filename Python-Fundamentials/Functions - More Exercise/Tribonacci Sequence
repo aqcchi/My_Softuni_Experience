@@ -1,0 +1,10 @@
+n = int(input())
+def tribonacci(n):
+    list = [1, 0, 0]
+    for i in range(n):
+        next_num = sum(list)
+        print(next_num, end=" ")
+        list.append(next_num)
+        list.pop(0)
+
+tribonacci(n)
