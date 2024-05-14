@@ -1,0 +1,13 @@
+def check_result(first, second, third):
+    if first * second * third == 0:
+        return "zero"
+    elif first * second * third > 0:
+        return "positive"
+    elif first * second * third <0:
+        return "negative"
+
+first_number = int(input())
+second_number = int(input())
+third_number = int(input())
+result = check_result(first_number, second_number, third_number)
+print(result)
