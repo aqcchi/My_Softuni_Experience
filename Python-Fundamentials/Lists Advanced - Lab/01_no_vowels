@@ -1,0 +1,3 @@
+my_text = input()
+new_text = [letter for letter in my_text if letter.lower() not in ['a', 'o', 'u', 'e', 'i']]
+print("".join(new_text))
