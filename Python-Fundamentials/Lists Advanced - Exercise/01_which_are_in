@@ -1,0 +1,12 @@
+sequence_one = input().split(", ")
+sequence_two = input().split(", ")
+
+my_list = []
+
+for word in sequence_one:
+    for element in sequence_two:
+        if word in element:
+            if word not in my_list:
+                my_list.append(word)
+
+print(my_list)
