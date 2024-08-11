@@ -1,0 +1,2 @@
+even_length_list = [element for element in input().split() if len(element) % 2 == 0]
+print(*even_length_list, sep="\n")
