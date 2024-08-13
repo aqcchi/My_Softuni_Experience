@@ -1,3 +1,4 @@
+number_of_rooms = int(input())
 free_chairs = 0
 chairs_are_not_needed = True
 
